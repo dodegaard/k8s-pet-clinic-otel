@@ -31,6 +31,7 @@ kubectl -n petclinic get pods
 kubectl -n petclinic delete -f spring-petclinic.yaml
 ```
 
+## Deploy the instrumented version of the pet clinic
 
 - deploy the splunk otel collector 
 ```
@@ -48,7 +49,7 @@ splunk-otel-collector-chart/splunk-otel-collector \
 --create-namespace
 ```
 
-## Deploy the instrumented version of the pet clinic
+- deploy the instrumented version of the pet clinic
 
 ```
 kubectl apply -f instru-spring-petclinic.yaml
