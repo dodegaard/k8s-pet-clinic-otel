@@ -55,7 +55,6 @@ splunk-otel-collector-chart/splunk-otel-collector \
 kubectl apply -f instru-spring-petclinic.yaml
 ```
 
-
 -----
 To get access to the petclinic UI and generate load
 
@@ -63,4 +62,18 @@ To get access to the petclinic UI and generate load
 kubectl -n petclinic port-forward --address 0.0.0.0 svc/petclinic 8080
 ```
 
+## Deploy the auto-instrumented version of the pet clinic
 
+- deploy the auto-instrumented version of the pet clinic
+
+```
+kubectl apply -f auto-instru-spring-petclinic.yaml
+```
+
+ultimately we are  using the default image with additionnal annotations 
+```
+  template:
+    metadata:
+      annotations:
+        otel.splunk.com/inject-java: "true"
+```
