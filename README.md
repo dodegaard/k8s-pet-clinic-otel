@@ -62,7 +62,7 @@ To get access to the petclinic UI and generate load
 kubectl -n petclinic port-forward --address 0.0.0.0 svc/petclinic 8080
 ```
 
-## Deploy the auto-instrumented version of the pet clinic
+## Deploy the auto-config instrumented version of the pet clinic
 
 - deploy the auto-instrumented version of the pet clinic
 
