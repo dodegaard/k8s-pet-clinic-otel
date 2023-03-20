@@ -48,7 +48,7 @@ splunk-otel-collector-chart/splunk-otel-collector \
 --create-namespace
 ```
 
-## Deploy the non-instrumented version of the pet clinic
+## Deploy the instrumented version of the pet clinic
 
 ```
 kubectl apply -f instru-spring-petclinic.yaml
