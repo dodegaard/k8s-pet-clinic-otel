@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petclinic-deployment
+  labels:
+    app: petclinic
+  namespace: petclinic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic
+  template:
+    metadata:
+      labels:
+        app: petclinic
+    spec:
+      containers:
+      - name: petclinic
+        image: ismapro/instrumented-petclinic-app:latest
+        env:
+          - name: SPLUNK_OTEL_AGENT
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: "http://$(SPLUNK_OTEL_AGENT):4317"
+          - name: OTEL_SERVICE_NAME
+            value: "petclinic"
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: "deployment.environment=dev"
+        ports:
+        - containerPort: 8080
