@@ -3,7 +3,7 @@
 
 prereq 
 
-- Kuberenetes cluster.
+- Kubernetes cluster.
 - PORT 8080 open on the machine
 
 ## Deploy the non-instrumented version of the pet clinic
