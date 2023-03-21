@@ -64,6 +64,12 @@ kubectl -n petclinic port-forward --address 0.0.0.0 svc/petclinic 8080
 
 ## Deploy the auto-config instrumented version of the pet clinic
 
+
+- deploy the splunk OpenTelemetry Collector Operator for Kubernetes
+
+Uninstall the splunk opentelemetry collector 
+[follow](https://github.com/signalfx/splunk-otel-collector-operator) the instruction to install the operator
+
 - deploy the auto-instrumented version of the pet clinic
 
 ```
@@ -77,3 +83,4 @@ ultimately we are  using the default image with additionnal annotations
       annotations:
         otel.splunk.com/inject-java: "true"
 ```
+
