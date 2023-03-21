@@ -55,20 +55,14 @@ splunk-otel-collector-chart/splunk-otel-collector \
 kubectl apply -f instru-spring-petclinic.yaml
 ```
 
------
-To get access to the petclinic UI and generate load
-
-```
-kubectl -n petclinic port-forward --address 0.0.0.0 svc/petclinic 8080
-```
 
 ## Deploy the auto-config instrumented version of the pet clinic
 
 
 - deploy the splunk OpenTelemetry Collector Operator for Kubernetes
 
-Uninstall the splunk opentelemetry collector 
-[follow](https://github.com/signalfx/splunk-otel-collector-operator) the instruction to install the operator
+Uninstall the splunk opentelemetry collector. 
+[follow](https://github.com/signalfx/splunk-otel-collector-operator) the instruction to install the operator.
 
 - deploy the auto-instrumented version of the pet clinic
 
