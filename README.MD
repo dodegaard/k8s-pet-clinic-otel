@@ -61,9 +61,9 @@ kubectl apply -f instru-spring-petclinic.yaml
 
 - deploy the splunk OpenTelemetry Collector Operator for Kubernetes
 
-Uninstall the splunk opentelemetry collector. 
+Uninstall the splunk opentelemetry collector.   
 [follow](https://github.com/signalfx/splunk-otel-collector-operator) the instruction to install the operator.
-
+  
 - deploy the auto-instrumented version of the pet clinic
 
 ```
