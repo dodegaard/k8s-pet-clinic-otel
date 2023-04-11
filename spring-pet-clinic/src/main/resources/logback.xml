@@ -4,8 +4,8 @@
   <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
       <resetJUL>true</resetJUL>
   </contextListener>
-  <logger name="org.springframework.samples.petclinic" level="debug"/>
-  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">					   <file>/var/log/spring-petclinic.log</file>
+  <logger name="org.springframework.samples.petclinic" level="DEBUG"/>
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">					   <file>/tmp/petclinic/spring-petclinic.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>springLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>5</maxHistory>
@@ -17,7 +17,14 @@
       </pattern>
     </encoder>
   </appender>
-  <root level="debug">
-    <appender-ref ref="file" />
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+       <pattern>
+      %d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg trace_id=%X{trace_id} span_id=%X{span_id} trace_flags=%X{trace_flags} service.name=%property{otel.resource.service.name}, deployment.environment=%property{otel.resource.deployment.environment} %n       
+       </pattern>
+    </encoder>
+  </appender>
+  <root level="DEBUG">
+    <appender-ref ref="STDOUT" />
   </root>
 </configuration>

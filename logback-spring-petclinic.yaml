@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: petclinic
-        image: ismapro/instrumented-petclinic-app:logback
+        image: docker.io/ismapro/instrumented-petclinic-app:logback
         env:
           - name: SPLUNK_OTEL_AGENT
             valueFrom:
