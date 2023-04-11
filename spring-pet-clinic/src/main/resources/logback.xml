@@ -5,8 +5,7 @@
       <resetJUL>true</resetJUL>
   </contextListener>
   <logger name="org.springframework.samples.petclinic" level="debug"/>
-  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>/tmp/spring-petclinic.log</file>
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">					   <file>/var/log/spring-petclinic.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <fileNamePattern>springLogFile.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>5</maxHistory>
