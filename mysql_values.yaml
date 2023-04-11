@@ -1,0 +1,39 @@
+namespaceOverride: "petclinic"
+## @param clusterDomain Cluster domain
+##
+auth:
+  ## @param auth.rootPassword Password for the `root` user. Ignored if existing secret is provided
+  ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#setting-the-root-password-on-first-run
+  ##
+  rootPassword: "root"
+  ## @param auth.createDatabase Whether to create the .Values.auth.database or not
+  ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
+  ##
+  createDatabase: true
+  ## @param auth.database Name for a custom database to create
+  ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
+  ##
+  database: "petclinic"
+  ## @param auth.username Name for a custom user to create
+  ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-user-on-first-run
+  ##
+  username: "petclinic"
+  ## @param auth.password Password for the new user. Ignored if existing secret is provided
+  ##
+  password: "petclinic"
+  ## @param auth.replicationUser MySQL replication user
+  ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#setting-up-a-replication-cluster
+
+## Mysqld Prometheus exporter parameters
+##
+metrics:
+  ## @param metrics.enabled Start a side-car prometheus exporter
+  ##
+  enabled: true
+  ## @param metrics.image.registry Exporter image registry
+  ## @param metrics.image.repository Exporter image repository
+  ## @param metrics.image.tag Exporter image tag (immutable tags are recommended)
+  ## @param metrics.image.digest Exporter image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
+  ## @param metrics.image.pullPolicy Exporter image pull policy
+  ## @param metrics.image.pullSecrets Specify docker-registry secret names as an array
+  ##

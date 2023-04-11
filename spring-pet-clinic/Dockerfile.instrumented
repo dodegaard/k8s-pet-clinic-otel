@@ -11,7 +11,8 @@ COPY src ./src
 COPY target/spring-petclinic-2.7.0-SNAPSHOT.jar ./spring-petclinic-2.7.0-SNAPSHOT.jar
 
 COPY splunk-otel-javaagent.jar ./splunk-otel-javaagent.jar
-#CMD ["./mvnw", "spring-boot:run"]
-CMD ["java", "-javaagent:./splunk-otel-javaagent.jar", "-Dsplunk.profiler.enabled=true", "-Dsplunk.profiler.period.threaddump=1000", "-Dsplunk.metrics.enabled=true", "-jar", "-Dotel.instrumentation.common.experimental.suppress-messaging-receive-spans=true", "./spring-petclinic-2.7.0-SNAPSHOT.jar"]
-#CMD ["java", "-javaagent:./splunk-otel-javaagent.jar", "-Dsplunk.profiler.enabled=true", "-Dsplunk.profiler.period.threaddump=1000", "-Dsplunk.metrics.enabled=true", "-jar", "-Dotel.instrumentation.common.experimental.suppress-messaging-receive-spans=true", "./app/target/*.jar"]
+
+#CMD ["java", "-javaagent:./splunk-otel-javaagent.jar", "-Dsplunk.profiler.enabled=true", "-Dsplunk.profiler.period.threaddump=1000","-Dsplunk.profiler.memory.enabled=true" , "-Dsplunk.metrics.enabled=true", "-jar", "-Dotel.instrumentation.common.experimental.suppress-messaging-receive-spans=true","-Dspring.profiles.active=postgres","./spring-petclinic-2.7.0-SNAPSHOT.jar"]
+
+CMD ["java", "-javaagent:./splunk-otel-javaagent.jar", "-Dsplunk.profiler.enabled=true", "-Dsplunk.profiler.period.threaddump=1000","-Dsplunk.profiler.memory.enabled=true" , "-Dsplunk.metrics.enabled=true", "-jar", "-Dotel.instrumentation.common.experimental.suppress-messaging-receive-spans=true", "./spring-petclinic-2.7.0-SNAPSHOT.jar"]
 

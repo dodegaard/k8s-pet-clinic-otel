@@ -23,11 +23,16 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: status.hostIP
+          - name: SPLUNK_METRICS_ENDPOINT
+            value: "http://$(SPLUNK_OTEL_AGENT):9943"
+            #value: "http://$(SPLUNK_OTEL_AGENT):9080/v2/datapoint"        
           - name: OTEL_EXPORTER_OTLP_ENDPOINT
             value: "http://$(SPLUNK_OTEL_AGENT):4317"
           - name: OTEL_SERVICE_NAME
             value: "petclinic"
           - name: OTEL_RESOURCE_ATTRIBUTES
             value: "deployment.environment=dev"
+          - name: SPLUNK_METRICS_EXPORT_INTERVAL
+            value: "10s"    
         ports:
         - containerPort: 8080
