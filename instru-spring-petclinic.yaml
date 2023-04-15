@@ -33,6 +33,12 @@ spec:
           - name: OTEL_RESOURCE_ATTRIBUTES
             value: "deployment.environment=dev"
           - name: SPLUNK_METRICS_EXPORT_INTERVAL
-            value: "10s"    
+            value: "10s"
+          - name: spring.datasource.url
+            value: "jdbc:postgresql://postgres/petclinic"
+          - name: spring.datasource.username
+            value: "petclinic"
+          - name: spring.datasource.password
+            value: "petclinic"    
         ports:
         - containerPort: 8080
