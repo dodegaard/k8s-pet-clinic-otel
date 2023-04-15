@@ -1,0 +1,19 @@
+splunkPlatform:
+  endpoint: "https://YOURDNSNAMEHERE:8088/services/collector"
+  token: "YOURTOKENHERE"
+  index: "otel_events"
+  metricsIndex: "otel_metrics"
+  insecureSkipVerify: true
+  logsEnabled: true
+  metricsEnabled: false
+  tracesEnabled: false
+  fieldNameConvention:
+    renameFieldsSck: false
+clusterName: "ipapa-splunk-enterprise"
+logsEngine: otel
+logsCollection:
+  containers:
+    enabled: true
+    containerRuntime: "containerd"
+    excludeAgentLogs: true
+
