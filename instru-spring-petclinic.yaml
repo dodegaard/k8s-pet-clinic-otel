@@ -14,26 +14,17 @@ spec:
     metadata:
       labels:
         app: petclinic
+      annotations:
+        instrumentation.opentelemetry.io/inject-java: "opentelemetry/demo-instrumentation"        
     spec:
       containers:
       - name: petclinic
-        image: ismapro/instrumented-petclinic-app:latest
+        image: springcommunity/spring-framework-petclinic:latest
         env:
-          - name: SPLUNK_OTEL_AGENT
-            valueFrom:
-              fieldRef:
-                fieldPath: status.hostIP
-          - name: SPLUNK_METRICS_ENDPOINT
-            value: "http://$(SPLUNK_OTEL_AGENT):9943"
-            #value: "http://$(SPLUNK_OTEL_AGENT):9080/v2/datapoint"        
-          - name: OTEL_EXPORTER_OTLP_ENDPOINT
-            value: "http://$(SPLUNK_OTEL_AGENT):4317"
           - name: OTEL_SERVICE_NAME
             value: "petclinic"
           - name: OTEL_RESOURCE_ATTRIBUTES
             value: "deployment.environment=dev"
-          - name: SPLUNK_METRICS_EXPORT_INTERVAL
-            value: "10s"
           - name: spring.datasource.url
             value: "jdbc:postgresql://postgres/petclinic"
           - name: spring.datasource.username

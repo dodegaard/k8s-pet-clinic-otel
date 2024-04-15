@@ -25,6 +25,18 @@ kubectl apply -f spring-service.yaml
 kubectl -n petclinic get pods 
 ```
 
+- Check the Service created 
+
+```
+kubectl -n petclinic get services
+```
+
+- Validate that you can run the petclinic app using the IP given by the petclinic Service above
+
+```
+kubectl -n petclinic get pods 
+```
+
 - delete the petclinic 
 
 ```
